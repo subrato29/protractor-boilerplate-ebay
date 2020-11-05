@@ -1,16 +1,43 @@
 'use strict'
 
 let data = {
-		prod: {
-			destination: "Seattle, WA, USA",
-			city: "Seattle",
-			destination_without_lyft_service: "Kolkata, West Bengal, India",
-			pick_up: '401 West Seminole Boulevard, Sanford, FL, USA',
-			drop_off: '901 International Parkway, Lake Mary, FL, USA'
-		},
-
-		how_can_we_help: {
-			riding_with_lyft: "Fees and Charges,Request a Ride,Choose a Ride Type,Ride Features,After Rides,Ride Fare and Discounts" 
+		home: {
+			all_cat: ['Antiques',
+					  'Art',
+					  'Baby',
+					  'Books',
+					  'Business & Industrial',
+					  'Cameras & Photo',
+					  'Cell Phones & Accessories',
+					  'Clothing, Shoes & Accessories',
+					  'Coins & Paper Money',
+					  'Collectibles',
+					  'Computers/Tablets & Networking',
+					  'Consumer Electronics',
+					  'Crafts',
+					  'Dolls & Bears',
+					  'DVDs & Movies',
+					  'eBay Motors',
+					  'Entertainment Memorabilia',
+					  'Gift Cards & Coupons',
+					  'Health & Beauty',
+					  'Home & Garden',
+					  'Jewelry & Watches',
+					  'Music',
+					  'Musical Instruments & Gear',
+					  'Pet Supplies',
+					  'Pottery & Glass',
+					  'Real Estate',
+					  'Specialty Services',
+					  'Sporting Goods',
+					  'Sports Mem, Cards & Fan Shop',
+					  'Stamps',
+					  'Tickets & Experiences',
+					  'Toys & Hobbies',
+					  'Travel',
+					  'Video Games & Consoles',
+					  'Everything Else'
+			]
 		}
 	}
 

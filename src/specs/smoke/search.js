@@ -18,7 +18,7 @@ describe('Search functionality validation: ', function() {
   });
 
 
-  it ('Valdating search field: ', function() {
+  it ('Valdating search field. existance: ', function() {
       browser.driver.manage().deleteAllCookies().then(() => {
     }).then(() => {
       return browser.driver.manage().window().maximize();
@@ -26,8 +26,41 @@ describe('Search functionality validation: ', function() {
       return homePage.validate_search_box();
     }).then((bool) => {
       return expect(bool).toBe(true);
+      done();
     }).catch((err) => {
       return Promise.reject(err);
+    })
+  });
+
+  it ('Valdating search functionality fetch the more than zero record: ', function() {
+      browser.driver.manage().deleteAllCookies().then(() => {
+    }).then(() => {
+      return browser.driver.manage().window().maximize();
+    }).then(() => {
+      return homePage.validate_search_activity('Laptop');
+    }).then(() => {
+      return homePage.click_btn_search();
+    }).then(() => {
+      return homePage.validate_count_of_searched_result();
+    }).then((count) => {
+      console.log ('total no searched result: ' + count);
+      expect(count).toBeGreaterThan(0);
+    }).catch((err) => {
+      return Promise.reject(err);
+    })
+  });
+
+  it ('Validation of all aategories list beside search box: ', function() {
+    browser.driver.manage().deleteAllCookies().then(() => {
+    }).then(() => {
+      return browser.driver.manage().window().maximize();
+    }).then(() => {
+      return homePage.validation_of_all_categories();
+    }).then((list) => {
+      let all_cat = data.home.all_cat;
+      for (let i = 0; i < all_cat.length; i++) {
+        expect(list.includes(all_cat[i])).toBe(true);
+      }
     })
   });
 
