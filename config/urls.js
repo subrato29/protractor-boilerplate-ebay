@@ -7,8 +7,8 @@ module.exports = {
 		home: {
 			baseUrl: "https://www.ebay.com/"
 		},
-		cities: {
-			baseUrl: "https://www.lyft.com/rider/cities"
+		cart: {
+			baseUrl: "https://cart.ebay.com/"
 		}
 	}	
 

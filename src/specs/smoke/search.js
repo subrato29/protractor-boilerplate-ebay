@@ -44,7 +44,8 @@ describe('Search functionality validation: ', function() {
       return homePage.validate_count_of_searched_result();
     }).then((count) => {
       console.log ('total no searched result: ' + count);
-      expect(count).toBeGreaterThan(0);
+      return expect(count).toBeGreaterThan(0);
+      done();
     }).catch((err) => {
       return Promise.reject(err);
     })
@@ -61,6 +62,8 @@ describe('Search functionality validation: ', function() {
       for (let i = 0; i < all_cat.length; i++) {
         expect(list.includes(all_cat[i])).toBe(true);
       }
+    }).catch((err) => {
+      return Promise.reject(err);
     })
   });
 

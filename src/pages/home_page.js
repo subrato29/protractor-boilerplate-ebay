@@ -47,7 +47,7 @@ class HomePage {
 		let locator = '//h3[contains(@class, \'s-item__title s\')]';
 		return new Promise ((resolve, reject) => {
 			element.all(by.xpath(locator)).then((list) => {
-				utils.wait(1000);
+				utils.wait(2000);
 				if (list.length > 0) {
 					resolve (list.length);
 				} else {
