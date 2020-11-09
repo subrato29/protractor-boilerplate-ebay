@@ -37,8 +37,17 @@ let data = {
 					  'Travel',
 					  'Video Games & Consoles',
 					  'Everything Else'
-			]
+					]
+		},
+		items: {
+			product1: ['233120792941',
+					   'Apple MacBook Air TURBO',
+					   '529.00',
+					   '1'
+					]
 		}
 	}
 
 module.exports = data;
+
+// product array: [product#, name, price, quantity]

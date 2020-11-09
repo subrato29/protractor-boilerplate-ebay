@@ -10,7 +10,7 @@ module.exports = {
         },
         regression: {
             specs: [
-                
+               'src/specs/regression/cart.js' 
             ]
         }
     }

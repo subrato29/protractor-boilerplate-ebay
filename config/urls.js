@@ -9,6 +9,9 @@ module.exports = {
 		},
 		cart: {
 			baseUrl: "https://cart.ebay.com/"
+		},
+		item: {
+			baseUrl: 'https://www.ebay.com/itm/'
 		}
 	}	
 
