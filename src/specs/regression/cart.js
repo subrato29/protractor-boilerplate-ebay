@@ -9,7 +9,7 @@ let data = require("../../../data/data.js");
 browser.ignoreSynchronization = true;
 
 
-describe('Shopping cart functionality validation: ', function() {
+describe('Regression- Shopping cart functionality validation: ', function() {
 
   beforeEach((done) => {
     browser.waitForAngularEnabled(false);

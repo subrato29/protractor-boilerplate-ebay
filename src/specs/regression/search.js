@@ -8,7 +8,7 @@ let data = require("../../../data/data.js");
 browser.ignoreSynchronization = true;
 
 
-describe('Search functionality validation: ', function() {
+describe('Regression- Search functionality validation: ', function() {
 
   beforeEach((done) => {
     browser.waitForAngularEnabled(false);
