@@ -49,6 +49,63 @@ class ViewCart {
 			});
 		}); 
 	};
+
+	click_btn_remove () {
+		let locator = '//span[text() = \'Remove\']/../..';
+		return new Promise ((resolve, reject) => {
+			element(by.xpath(locator)).isPresent().then((present) => {
+				if (present) {
+					resolve (element(by.xpath(locator)).click());
+				} else {
+					reject (locator + ' is not present');
+				}
+			});
+		});
+	};
+
+	validate_item_removal () {
+		let locator = '//span[contains(text(),\'was removed from your cart\')]';
+		let el = element(by.xpath(locator));
+		utils.waitForElement(el)
+		return new Promise ((resolve, reject) => {
+			el.isPresent().then((present) => {
+				if (present) {
+					resolve (true);
+				} else {
+					reject (locator + ' is not present');
+				}
+			});
+		}); 
+	};
+
+	click_check_out () {
+		let locator = '//button[text() = \'Go to checkout\']';
+		let el = element(by.xpath(locator));
+		return new Promise ((resolve, reject) => {
+			el.isPresent().then((present) => {
+				if (present) {
+					resolve (el.click());
+				} else {
+					reject (locator + ' is not present');
+				}
+			});
+		});
+	};
+
+	click_continue_as_guest () {
+		let locator = '//button[text() = \'Continue as guest\']';
+		let el = element(by.xpath(locator));
+		utils.waitForElement(el)
+		return new Promise ((resolve, reject) => {
+			el.isPresent().then((present) => {
+				if (present) {
+					resolve (el.click());
+				} else {
+					reject (locator + ' is not present');
+				}
+			});
+		});
+	};
 }
 
 module.exports = new ViewCart();

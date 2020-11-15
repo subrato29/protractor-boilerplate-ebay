@@ -44,7 +44,17 @@ let data = {
 					   'Apple MacBook Air TURBO',
 					   '529.00',
 					   '1'
-					]
+			],
+			product2: ['223899679903',
+					   'Gold Black',
+					   '29.99',
+					   '3'
+			],
+			product3: ['224132000591',
+					   'Red',
+					   '25.99',
+					   '2'
+			]		
 		}
 	}
 

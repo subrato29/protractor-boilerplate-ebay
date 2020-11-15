@@ -3,7 +3,7 @@
 let utils = require('../../lib/commonUtils.js');
 let genericUtils = require('../../lib/genericUtils.js');
 
-class CartPage {
+class ProductDetailsPage {
 	validate_shopping_cart_text() {
 		let locator = '//h1[text() = \'Shopping cart\']';
 		return new Promise((resolve, reject) => {
@@ -73,7 +73,7 @@ class CartPage {
 
 	set_quantity (value) {
 		if (value != 1) {
-			let locator = '//label[contains(text(), \'Quantity\')]/../..//input';
+			let locator = '//div[contains(@class, \'lable quantity\')]/label[contains(text(), \'Quantity\')]/../..//input';
 			return new Promise ((resolve, reject) => {
 				let el = element(by.xpath(locator));
 				el.isPresent().then((present) => {
@@ -104,16 +104,79 @@ class CartPage {
 
 	click_no_thanks () {
 		let locator = '//button[text() = \'No thanks\']';
+		let el = element(by.xpath(locator));
+		utils.waitForElement(el);
 		return new Promise ((resolve, reject) => {
-			element(by.xpath(locator)).isPresent().then((present) => {
+			el.isPresent().then((present) => {
 				if (present) {
-					resolve (element(by.xpath(locator)).click());
+					resolve (el.click());
 				} else {
 					reject (locator + ' is not present');
 				}
 			});
 		});
 	};
+
+	select_color (value) {
+		let locator = '//select[@name = \'Color\']/option[text() = \'' + value + '\']';
+		let el = element(by.xpath(locator));
+		return new Promise ((resolve, reject) => {
+			el.isPresent().then((present) => {
+				if (present) {
+					resolve (el.click());
+				} else {
+					reject (locator + ' is not present');
+				}
+			});
+		});
+	};
+
+	click_go_to_cart () {
+		let locator = '//span[text() = \'Go to cart\']/../..';
+		let el = element(by.xpath(locator));
+		utils.waitForElement(el);
+		return new Promise ((resolve, reject) => {
+			el.isPresent().then((present) => {
+				if (present) {
+					resolve (el.click());
+				} else {
+					reject (locator + ' is not present');
+				}
+			});
+		});
+	}
+
+	get_total_cart_items() {
+		let locator = '//h1[contains(text(), \'Shopping cart\')]';
+		let el = element(by.xpath(locator));
+		return new Promise((resolve, reject) => {
+			el.isPresent().then((present) => {
+				if (present) {
+					el.getText().then((text) => {
+						resolve ((text.split('(')[1]).split(' ')[0]);
+					});
+				} else {
+					reject (locator + ' is not present');
+				}
+			});
+		});
+	}
+
+	get_total_price () {
+		let locator = '//div[@ data-test-id = \'ITEM_TOTAL\']/span/span/span';
+		let el = element(by.xpath(locator));
+		return new Promise((resolve, reject) => {
+			el.isPresent().then((present) => {
+				if (present) {
+					el.getText().then((text) => {
+						resolve (text.split('$')[1]);
+					});
+				} else {
+					reject (locator + ' is not present');
+				}
+			});
+		});
+	}
 };
 
-module.exports = new CartPage();
+module.exports = new ProductDetailsPage();

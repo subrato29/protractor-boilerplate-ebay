@@ -2,7 +2,7 @@
 'use strict'
 
 let url = require('../../../config/urls.js');
-let cartPage = require('../../pages/cart_page.js')
+let productPage = require('../../pages/product_details.js')
 let data = require("../../../data/data.js");
 
 browser.ignoreSynchronization = true;
@@ -22,15 +22,15 @@ describe('Smoke- Shopping cart functionality validation: ', function() {
     }).then(() => {
       return browser.driver.manage().window().maximize();
     }).then(() => {
-      return cartPage.validate_shopping_cart_text();
+      return productPage.validate_shopping_cart_text();
     }).then((bool) => {
       return expect(bool).toBe(true);
     }).then(() => {
-      return cartPage.validate_shopping_cart_with_no_item();
+      return productPage.validate_shopping_cart_with_no_item();
     }).then((bool) => {
       return expect(bool).toBe(true);
     }).then(() => {
-      return cartPage.validate_no_item_text();
+      return productPage.validate_no_item_text();
     }).then((bool) => {
       return expect(bool).toBe(true);
       done();
