@@ -152,6 +152,19 @@ class ViewCart {
 			});
 		}); 
 	};
+
+	click_remove_all () {
+		let locator = '//div[@class = \'cart-bucket\']/div/div//span[text() = \'Remove\']/../..';
+		let row = 1;
+		element.all (by.xpath(locator)).then((list) => {
+			while (row <= list.length) {
+				let el = element(by.xpath('//div[@class = \'cart-bucket\']/div/div[1]//span[text() = \'Remove\']/../..'));
+				el.click();
+				utils.wait(1000);
+				row++;
+			}
+		});
+	}
 }
 
 module.exports = new ViewCart();

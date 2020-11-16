@@ -45,6 +45,7 @@ class ProductDetailsPage {
 
 	validate_item_title () {
 		let locator = '//h1[@id = \'itemTitle\']';
+		utils.waitForElement(element(by.xpath(locator)));
 		return new Promise ((resolve, reject) => {
 			element(by.xpath(locator)).isPresent().then((present) => {
 				if (present) {

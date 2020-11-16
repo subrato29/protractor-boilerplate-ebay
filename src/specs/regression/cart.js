@@ -95,6 +95,8 @@ describe('Regression- Shopping cart functionality validation: ', function() {
       return productPage.get_total_price();
     }).then ((text) => {
       return expect (expectedTotalPrice.toString()).toBe(text);
+    }).then (() => {
+      return viewCartPage.click_remove_all();
       done();
     }).catch((err) => {
       return Promise.reject(err);
@@ -124,6 +126,8 @@ describe('Regression- Shopping cart functionality validation: ', function() {
       return viewCartPage.get_item_total_price_checkout_area();
     }).then ((totPrice) => {
       return expect (totPrice).toBe (expectedTotalPrice.toString());
+    }).then (() => {
+      return viewCartPage.click_btn_remove();
       done();
     }).catch ((err) => {
       return Promise.reject(err);
