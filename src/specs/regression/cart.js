@@ -101,6 +101,35 @@ describe('Regression- Shopping cart functionality validation: ', function() {
     })
   });
 
+  it ('Validating price item count and total price updating from cart page: ', function() {
+    let expectedTotalQuantity = data.items.product4[2];
+    let expectedTotalPrice = 0;
+    browser.get(url.url.item.baseUrl + data.items.product4[0]).then(() => {
+      return browser.driver.manage().deleteAllCookies();
+    }).then(() => {
+      return browser.driver.manage().window().maximize();
+    }).then(() => {
+      return productPage.select_color(data.items.product4[1]);
+    }).then(() => {
+      return productPage.click_add_to_cart();
+    }).then(() => {
+      return productPage.click_go_to_cart();
+    }).then (() => {
+      return viewCartPage.select_item_quantity(expectedTotalQuantity);
+    }).then (() => {
+      return viewCartPage.get_item_price();
+    }).then ((price) => {
+      expectedTotalPrice = parseInt(expectedTotalQuantity) * parseFloat(price);
+    }).then (() => {
+      return viewCartPage.get_item_total_price_checkout_area();
+    }).then ((totPrice) => {
+      return expect (totPrice).toBe (expectedTotalPrice.toString());
+      done();
+    }).catch ((err) => {
+      return Promise.reject(err);
+    })
+  })
+
 
   afterEach((done) => {
     browser.get(url.url.home.baseUrl).then(() => {

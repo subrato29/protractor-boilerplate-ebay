@@ -106,6 +106,52 @@ class ViewCart {
 			});
 		});
 	};
+
+	select_item_quantity (value) {
+		let locator = '//select[@class = \'listbox__control\']/../../../../..//div[contains(@class, \'grid__cell\')]//select/option[text() = \'' + value + '\']';
+		let el = element(by.xpath(locator));
+		utils.waitForElement(el);
+		return new Promise ((resolve, reject) => {
+			el.isPresent().then((present) => {
+				if (present) {
+					resolve (el.click())
+				} else {
+					reject (locator + ' is not present');
+				}
+			});
+		});
+	};
+
+	get_item_total_price_checkout_area () {
+		let locator = '//div[@data-test-id = \'ITEM_TOTAL\']/span/span/span';
+		return new Promise ((resolve, reject) => {
+			element(by.xpath(locator)).isPresent().then((present) => {
+				if (present) {
+					element(by.xpath(locator)).getText().then((text) => {
+						resolve (genericUtils.getArray(text, '$')[1]);
+					});
+				} else {
+					reject (locator + ' is not present');
+				}
+			});
+		}); 
+	};
+
+	get_item_price () {
+		let locator = '//div[@class = \'item-price\']/span/span/span';
+		return new Promise ((resolve, reject) => {
+			element(by.xpath(locator)).isPresent().then((present) => {
+				if (present) {
+					element(by.xpath(locator)).getText().then((text) => {
+						utils.wait(6000)
+						resolve (genericUtils.getArray(text, '$')[1]);
+					});
+				} else {
+					reject (locator + ' is not present');
+				}
+			});
+		}); 
+	};
 }
 
 module.exports = new ViewCart();
