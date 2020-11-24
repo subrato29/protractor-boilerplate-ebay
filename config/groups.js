@@ -5,7 +5,8 @@ module.exports = {
         smoke: {
             specs: [
                 'src/specs/smoke/search.js',
-                'src/specs/smoke/cart.js'
+                'src/specs/smoke/cart.js',
+                'src/specs/regression/search.js'
             ]
         },
         regression: {
