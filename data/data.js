@@ -59,6 +59,11 @@ let data = {
 					   'Gold',
 					   '6'
 			]		
+		},
+		all_listing: {
+			price: [200,
+					300
+			]
 		}
 	}
 

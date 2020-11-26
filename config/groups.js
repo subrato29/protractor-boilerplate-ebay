@@ -12,7 +12,8 @@ module.exports = {
             specs: [
                 'src/specs/regression/cart.js',
                 'src/specs/regression/checkout.js',
-                'src/specs/regression/search.js'  
+                'src/specs/regression/search.js',
+                'src/specs/regression/all_listing.js'
             ]
         }
     }
