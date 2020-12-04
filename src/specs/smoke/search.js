@@ -67,6 +67,20 @@ describe('Sanity- Search functionality validation: ', function() {
     })
   });
 
+  it ('Validation of search criteria of a product mismatch of search criteria: ', function() {
+    browser.driver.manage().deleteAllCookies().then(() => {
+      return browser.driver.manage().window().maximize();
+    }).then(() => {
+      return homePage.validate_search_activity('hhjagsdhjagahs');
+    }).then(() => {
+      return homePage.click_btn_search();
+    }).then(() => {
+      return homePage.validate_no_exact_match_found();
+    }).catch((err) => {
+      return Promise.reject(err);
+    });
+  });
+
 
   afterEach((done) => {
     browser.get(url.url.home.baseUrl).then(() => {

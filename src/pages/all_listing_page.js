@@ -60,6 +60,48 @@ class All_Listing_Page {
 			})
 		})
 	};
+
+	select_best_match () {
+		let locator = '//button[contains(@aria-label, \'Sort selector\')]';
+		let el = element(by.xpath(locator));
+		return new Promise ((resolve, reject) => {
+			el.isPresent().then((present) => {
+				if (present) {
+					resolve (el.click());
+				} else {
+					reject (locator + ' is not displayed');
+				}
+			});
+		});
+	};
+
+	select_ascending_price () {
+		let locator = '//span[contains(text(), \'lowest first\')]';
+		let el = element(by.xpath(locator));
+		return new Promise ((resolve, reject) => {
+			el.isPresent().then((present) => {
+				if (present) {
+					resolve (el.click());
+				} else {
+					reject (locator + ' is not displayed');
+				}
+			});
+		});
+	};
+
+	select_descending_price () {
+		let locator = '//span[contains(text(), \'highest first\')]';
+		let el = element(by.xpath(locator));
+		return new Promise ((resolve, reject) => {
+			el.isPresent().then((present) => {
+				if (present) {
+					resolve (el.click());
+				} else {
+					reject (locator + ' is not displayed');
+				}
+			});
+		});
+	};
 }
 
 module.exports = new All_Listing_Page();

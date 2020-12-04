@@ -69,6 +69,21 @@ class HomePage {
 			});
 		});
 	};
+
+	validate_no_exact_match_found() {
+		let locator= '//h3[contains(text(), \'No exact matches found\')]'
+		let el = element(by.xpath(locator));
+		utils.waitForElement(el);
+		return new Promise((resolve, reject) => {
+			el.isPresent().then ((present) => {
+				if (present) {
+					resolve();
+				} else {
+					reject (locator + ' is not present');
+				}
+			});
+		});
+	};
 };
 
 module.exports = new HomePage();

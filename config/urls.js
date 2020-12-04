@@ -14,7 +14,7 @@ module.exports = {
 			baseUrl: 'https://www.ebay.com/itm/'
 		},
 		all_listing: {
-			baseUrl: 'https://www.ebay.com/sch/i.html?_from=R40&_nkw=laptop&_sacat=0&LH_TitleDesc=0&_fsrp=1&rt=nc&LH_All=1'
+			baseUrl: 'https://www.ebay.com/sch/i.html?_from=R40&_nkw=laptop&_sacat=0&_oaa=1&_dcat=177&_sop=15'
 		}
 	}	
 
