@@ -64,6 +64,20 @@ let data = {
 			price: [200,
 					300
 			]
+		},
+		all_prod_categories: {
+			list_prod_cat: ['eBay Motors',
+						  'Fashion',
+						  'Books, Movies & Music',
+						  'Electronics',
+						  'Collectibles & Art',
+						  'Home & Garden',
+						  'Sporting Goods',
+						  'Toys & Hobbies',
+						  'Business & Industrial',
+						  'Health & Beauty',
+						  'Others'
+						]
 		}
 	}
 
