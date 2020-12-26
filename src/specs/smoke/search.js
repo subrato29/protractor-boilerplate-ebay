@@ -3,6 +3,7 @@
 
 let url = require('../../../config/urls.js');
 let homePage = require('../../pages/home_page.js')
+let searchResultPage = require('../../pages/searched_results_page.js')
 let data = require("../../../data/data.js");
 
 browser.ignoreSynchronization = true;
@@ -79,6 +80,20 @@ describe('Sanity- Search functionality validation: ', function() {
     }).catch((err) => {
       return Promise.reject(err);
     });
+  });
+
+  it('Validating search criteria with a blank value: ', function() {
+    browser.driver.manage().deleteAllCookies().then(() => {
+      return browser.driver.manage().window().maximize();
+    }).then(() => {
+      return homePage.validate_search_activity('     '); 
+    }).then(() => {
+      return homePage.click_btn_search();
+    }).then(() => {
+      return searchResultPage.validating_search_result_by_blank_char();
+    }).catch((err) => {
+      return Promise.reject(err);
+    })
   });
 
 

@@ -47,6 +47,21 @@ class SearchedResultPage {
 			});
 		});
 	};
+
+	validating_search_result_by_blank_char () {
+		let locator = '//div[contains(text(), \'The query must have at least a keyword\')]';
+		let el = element(by.xpath(locator));
+		utils.waitForElement(el);
+		return new Promise ((resolve, reject) => {
+			el.isPresent().then((present) => {
+				if (present) {
+					resolve ();
+				} else {
+					reject (locator + ' is not found');
+				}
+			});
+		});
+	};
 }
 
 module.exports = new SearchedResultPage();
